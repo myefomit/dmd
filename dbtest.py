@@ -13,7 +13,8 @@ cur.execute("INSERT INTO test (first_name, last_name) VALUES ('Bugster', 'Gribno
 cur.execute("SELECT * FROM test;")
 data = cur.fetchall()
 print(data);
-
+#Rober gamosek
 conn.commit()
 cur.close()
 conn.close()
+
