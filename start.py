@@ -1,6 +1,10 @@
 from bottle import route, run, template, request
 import psycopg2
 
+# TODO
+# 1.search
+# 2.categories
+
 conn = psycopg2.connect("dbname=project user=postgres")
 cur = conn.cursor()
 

@@ -1,4 +1,5 @@
-import urllib #ololo hello from new feature
-url = 'http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=1'
-data = urllib.request.urlopen(url).read()
-print(data)
+import urllib 
+url = 'http://export.arxiv.org/api/query?search_query=all&start=0&max_results=10000'
+data = urllib.urlopen(url).read()
+f = open('result.txt', 'w')
+f.write(data)
