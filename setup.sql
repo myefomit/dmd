@@ -180,6 +180,22 @@ ALTER TABLE ONLY categories
 
 
 --
+-- Name: unique_author; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY authors
+    ADD CONSTRAINT unique_author UNIQUE (name);
+
+
+--
+-- Name: unique_category; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY categories
+    ADD CONSTRAINT unique_category UNIQUE (category);
+
+
+--
 -- Name: connection_aid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
