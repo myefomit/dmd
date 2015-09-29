@@ -8,3 +8,4 @@
 %else:
   <h1>Nothing for you today, come back soon!</h1>
 %end
+<a href="/">Take me back</a>
