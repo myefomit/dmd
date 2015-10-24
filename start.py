@@ -17,6 +17,6 @@ def search():
   name = request.query['name']
   cur.execute("SELECT * FROM test WHERE first_name ILIKE %s", (name,))  
   data = cur.fetchall()
-  return template("view/search_result.tpl", rows=data)
+  return template("view/search_result.tpl", rows=data, name=name)
 
-run(host='localhost', port=3000)
+run(host='localhost', port=3001)
