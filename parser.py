@@ -4,10 +4,9 @@ import psycopg2
 conn = psycopg2.connect('dbname=p17 user=postgres')
 cur = conn.cursor()
 
-for i in range (0, 1):
-    #try:
-        #document = parse('file' + str(i) + '.txt')
-        document = parse('file8.txt')
+for i in range (0, 1080):
+    try:
+        document = parse('file' + str(i) + '.txt')
         for k in range(1, 1001):
             id_tag = document.getElementsByTagName('id')[k-1].toxml()
             article_id = id_tag.replace('<id>','').replace('</id>','')
@@ -101,8 +100,8 @@ for i in range (0, 1):
                 #   continue
 
             conn.commit()
-        #f.close()
-    #except:
-    #    continue
+        f.close()
+    except:
+        continue
 cur.close()
 conn.close()
