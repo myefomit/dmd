@@ -1,12 +1,9 @@
 from bottle import route, run, template, request, static_file
-import psycopg2
+from mapper import Article
 
 # TODO
 # 1.search
 # 2.categories
-
-conn = psycopg2.connect("dbname=project77 user=postgres")
-cur = conn.cursor()
 
 @route('/') 
 def index():
@@ -14,16 +11,14 @@ def index():
 
 @route('/styles/<file>', name='view/styles')
 def static(file):
-  print(file)
   return static_file(file, root='view/styles')
 
 @route('/search')
 def search():
-  query = request.query['name']
-  cur.execute("SELECT title, summary FROM articles WHERE lexemes @@ to_tsquery(%s)", (query,))  
-  data = cur.fetchall()
-  print(data)
-  return template("view/search_result.tpl", rows=data, name=query)
+  name = request.query['name']
+  limit = request.query['limit']
+  data = Article.find_by_author(author_name=name,limit=limit)
+  return template("view/search_result.tpl", rows=data, name=name)
 
 run(host='localhost', port=3001)
 
