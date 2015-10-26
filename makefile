@@ -1,2 +1,2 @@
 all:
-	python3 parser.py
+	python3 start.py
