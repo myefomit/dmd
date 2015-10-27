@@ -1,10 +1,6 @@
 from bottle import route, run, template, request, static_file
 from mapper import Article
 
-# TODO
-# 1.search
-# 2.categories
-
 @route('/') 
 def index():
   return template("view/main.tpl")
@@ -15,10 +11,20 @@ def static(file):
 
 @route('/search')
 def search():
-  name = request.query['name']
+  author_name = request.query['name']
   limit = request.query['limit']
-  data = Article.find_by_author(author_name=name,limit=limit)
-  return template("view/search_result.tpl", rows=data, name=name)
+  category = request.query['category']
+  title = request.query['title']
+  year = request.query['year']
+
+  data = Article.find(author_name, category, title, year, limit)
+
+  return template("view/search_result.tpl", rows=data)
+
+@route('/article/<id>')
+def show(id):
+  article = Article.find_by_id(id)
+  return template("view/article.tpl", article=article)
 
 run(host='localhost', port=3001)
 

@@ -19,6 +19,11 @@
     </div>
 
     <div>
+      <label for="">Year: </label>
+      <input type="text" name="year">
+    </div>
+
+    <div>
       <label for="limit">Limit: </label>
       <input type="text" name="limit">  
     </div>
