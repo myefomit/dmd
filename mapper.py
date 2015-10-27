@@ -8,26 +8,29 @@ class Article:
   cur = conn.cursor()
 
   @staticmethod
-  def find(author_name, category, title, year, limit):
+  def find(author, category, title, year, limit):
+    BASE_SQL = "SELECT DISTINCT ON(title) title, summary, name, category FROM articles, categories, authors, connection WHERE "
+    conditions = "articles.id = connection.id and categories.cid = connection.cid and authors.aid = connection.aid "
 
-    Article.cur.execute("SELECT DISTINCT ON(title) title, summary, name, link FROM articles as ar, authors as au, connection as co WHERE lexemes @@ to_tsquery(%s) and ar.id = co.id and au.aid = co.aid", (title, ))
+    if not (title or year or author or category):
+      return -1
+    if title:
+      conditions = conditions + "and lexemes @@ plainto_tsquery(%(title)s) "
+    if year:
+      conditions = conditions + "and year = %(year)s "
+    if author:
+      conditions = conditions + "and authors.name ILIKE '%% " + author + "%%' "
+    if category:
+      conditions = conditions + "and categories.category = %(category)s "
+    if limit:
+      limit = "LIMIT %(limit)s"
+    else:
+      limit = "LIMIT 50"
+
+    Article.cur.execute(BASE_SQL + conditions + limit, dict(title=title, category=category, year=year, limit=limit))
     data = Article.cur.fetchall()
-    return data
-
-    # if author_name and category and title and year:
-    #   select = "SELECT DISTINCT ON (title) title, summary, name, link FROM "
-    #   tables = "authors as au, articles as ar, connection as co, categories as ca WHERE "
-    #   where_one = "au.aid = co.aid and ar.id = co.id and ca.cid = co.cid and ca.category = %(category)s and "
-    #   where_two = "au.name ILIKE %(like)s and lexemes @@ to_tsquery(%(title)s) and ar.year = %(year)s"
-    #   sql = select + tables + where_one + where_two
-    #   if limit:
-    #     sql = sql + " LIMIT " + limit
-    #   Article.cur.execute(sql, dict(like='%'+author_name+'%', title=title, category=category, year=year))
-    #   data = Article.cur.fetchall()
-    #   return data
-
-    #SQLBuilder ->
     
+    return data
 
   @staticmethod
   def find_by_id(id):
