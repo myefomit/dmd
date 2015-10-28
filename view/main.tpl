@@ -1,7 +1,24 @@
 <h1>Welcome to our app!</h1>
 <div>
+
+  <h2>Here you can find any paper you want</h2>
+
+  %if user:
+    <div><a href="/sign_out">Sign out</a></div>
+  %else:
+    <div><a href="/sign_in">Sign in</a></div>
+    <div><a href="/sign_up">Sign up</a></div>
+  %end
+
+  %if messages:
+    <div>
+      <span>
+        {{messages[0]}}
+      </span>
+    </div>
+  %end
+
   <form action="search">
-    <h2>Here you can find any paper you want</h2>
     
     <div>
       <label for="name">Author: </label>
@@ -29,5 +46,6 @@
     </div>
 
     <input type="submit" value="Search">
+
   </form>
 </div>
