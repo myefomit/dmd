@@ -16,7 +16,7 @@
     </span>
   </div>
   <div>
-    <p>{{article['summary']}}</p>
+    <p>{{article['summary']}}...</p>
   </div>
   <div>
     <span>{{article['link']}}</span>

@@ -9,7 +9,7 @@ class Article:
 
   @staticmethod
   def find(author, category, title, year, limit):
-    BASE_SQL = "SELECT DISTINCT ON(title) title, summary, name, category FROM articles, categories, authors, connection WHERE "
+    BASE_SQL = "SELECT DISTINCT ON(title) title, summary, name, link, category FROM articles, categories, authors, connection WHERE "
     conditions = "articles.id = connection.id and categories.cid = connection.cid and authors.aid = connection.aid "
 
     if not (title or year or author or category):
@@ -23,13 +23,15 @@ class Article:
     if category:
       conditions = conditions + "and categories.category = %(category)s "
     if limit:
-      limit = "LIMIT %(limit)s"
+      limit = "LIMIT " + limit
     else:
       limit = "LIMIT 50"
 
-    Article.cur.execute(BASE_SQL + conditions + limit, dict(title=title, category=category, year=year, limit=limit))
+    Article.cur.execute(BASE_SQL + conditions + limit, dict(title=title, category=category, year=year))
     data = Article.cur.fetchall()
-    
+
+    print(data)
+
     return data
 
   @staticmethod
