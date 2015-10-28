@@ -11,7 +11,7 @@ def static(file):
 
 @route('/styles/fonts/<file>', name='view/styles/fonts')
 def static(file):
-  return static_file(file, name='view/styles/fonts')
+  return static_file(file, root='view/styles/fonts')
 
 @route('/search')
 def search():
