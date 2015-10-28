@@ -3,7 +3,7 @@
 	padding: 0;
  }
  
- .results {
+.results {
 	margin: 10px;
 }
  
@@ -27,7 +27,7 @@
 	height: 4px;
 }
 
-.support {
+.options {
 	display: inline-block;
 	margin-bottom: auto;
 	margin-right: auto;
@@ -51,41 +51,7 @@
 	padding: 20px;
 }
 
-#Home, #Support, #Blog, #Services {
-	text-align: center;
-	display: inline-block;
-	padding: 10px;
-}
-
-#menu_form {
-	position: absolute;
-	width: 92%;
-	height: 60px;
-	background: #34495e;
-	z-index: 1;
-	display: inline-block;
-	margin-left: 4%;
-	margin-right: 4%;
-}
-
-
-#SUBMIT {
-	border-left: #3498db;
-	border-right: #3498db;
-}
-
- #body {
-	 top: 300px;
-	 position: relative;
-}
-
 .sign_up_content { 
-	background: #c0392b;
-	color: #fff;
-	padding: 3px;
-}
-
-.1update_content { 
 	background: #c0392b;
 	color: #fff;
 	padding: 3px;
@@ -134,71 +100,14 @@ t1:visited {
 	font: 16pt LucidaSansUnicode;
 	color: #fff;
 }
-   
+
 t2 {
-	font: 27pt Humnst777BlkBT;
-	font-weight: bold;
-	color: #34495e;
-}
-
-t2:visited {
-	font: 27pt Humnst777BlkBT;
-	font-weight: bold;
-	color: #34495e;
-}
-   
-t3 {
-	font: 14pt Corbert;
-	font-weight: bold;
-	color: #000;
-}
-
-t4 {
 	font: 26pt Corbert;
 	font-weight: bold;
 	color: #000;
 }
 
-t5 {
-	font: 40pt Corbert;
-	color: #000;
-}
-
-t6 {
-	font: 13pt Anonymous Pro;
-	color: #000;
-}
-
-t7 {
-	font: 20pt LucidaSansUnicode;
-	text-shadow: 0px 0px 1px rgba(0,0,0,1);
-	color: #fff;
-}
-
-t7:visited {
-	font-weight: bold;
-	font: 20pt LucidaSansUnicode;
-	text-shadow: 0px 0px 1px rgba(0,0,0,1);
-}
-
-t8 {
-	font: 20pt Corbert;
-	font-weight: bold;
-	color: #000;
-}
-
-t9 {
-	font: 10pt LucidaSansUnicode;
-	color: #3f3f3f;
-	font-weight: bold;
-}
-
-t10 {
-	font: 16pt LucidaSansUnicode;
-	color: #000;
-}
-
-t11 {
+t3 {
 	font: 8pt LucidaSansUnicode;
 	color: #bdc3c7;
 }
@@ -206,21 +115,6 @@ t11 {
 a {
 	color: #fff;
 	text-decoration: none;
-}
-
-@font-face {
-	font-family: 'Anonymous Pro';
-	src: local('Anonymous Pro'), local('Anonymous Pro Regular'), url('http://64424.selcdn.ru/webfont/anonym/anonymous_pro.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: Humnst777BlkBT;
-	src: url("fonts/Humnst777BlkBT.eot");
-	src: url("fonts/Humnst777BlkBT.eot?") format('eot');
-	src: url("fonts/Humnst777BlkBT.woff") format('woff');
-	src: local("Humnst777BlkBT"), url("fonts/Humnst777BlkBT.ttf");
 }
 
 @font-face {
@@ -232,28 +126,10 @@ a {
 }
 
 @font-face {
-	font-family: InputMono-Regular;
-	src: url("fonts/InputMono-Regular.eot");
-	src: url("fonts/InputMono-Regular.eot?") format('eot');
-	src: url("fonts/InputMono-Regular.woff") format('woff');
-	src: local("InputMono-Regular"), url("fonts/InputMono-Regular.ttf");
-}
-
-@font-face {
 	font-family: Corbert;
 	src: local('Corbert Regular'), local('Corbert-Regular'), url('http://64424.selcdn.ru/webfont/corbert/corbert_regular_regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
-}
-	
- #Project 
-{ 
-	 left: 16px; 
-	 top: 8px; 
-	 position: absolute; 
-	 width: 156px;
-	 height: 33px;
-	 z-index:1;
 }
 
 .radius {
@@ -280,18 +156,15 @@ a {
     margin-bottom: 10px;
 }
 
-#update
-{
-	 border-radius: 8px;
-	 width: 95%;
-	 top: 340px;
+
+#body {
+	 top: 300px;
 	 position: relative;
-	 z-index:30;
 }
 
- #title, #name, #category, #limit, #year  {
+#title, #name, #category, #limit, #year  {
 	 top: 520px; 
-	 width: 369px;
+	 width: 80%px;
 	 height: 45px;
 	 z-index:44;
 	 border-top: #3498db;
@@ -301,7 +174,7 @@ a {
 	 font-weight: bold;
 }
 
- #SUBMIT {
+#submit {
 	 top: 620px;
 	 z-index:46;
 }
