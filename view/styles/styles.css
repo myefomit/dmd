@@ -63,7 +63,7 @@
 	top: 8px;
 	position: absolute;
 	width: 80px;
-	z-index: 3;
+	z-index: 1;
 	padding: 5px 17px;
 	border: none;
 	-webkit-border-radius: 6 px;
@@ -79,7 +79,7 @@
 	text-align: center; 
 	top: 10px;
 	width: 369px;
-	z-index: 3;
+	z-index: 1;
 	padding: 9px 7px; 
 	border: none; 
 	-webkit-border-radius: 6 px;
@@ -162,11 +162,21 @@ a {
 	 position: relative;
 }
 
-#title, #name, #category, #limit, #year  {
+#title {
 	 top: 520px; 
-	 width: 80%px;
+	 width: 17%;
 	 height: 45px;
-	 z-index:44;
+	 border-top: #3498db;
+	 border-right: #3498db;
+	 border-left: #3498db;
+	 font: 17pt Corbert;
+	 font-weight: bold;
+}
+
+#name, #category, #limit, #year  {
+	 top: 520px; 
+	 width: 100%;
+	 height: 45px;
 	 border-top: #3498db;
 	 border-right: #3498db;
 	 border-left: #3498db;
@@ -176,10 +186,9 @@ a {
 
 #submit {
 	 top: 620px;
-	 z-index:46;
+	 z-index: 2;
 }
 
 #comment {
 	 top: 590px;
-	 z-index:47;
 }
