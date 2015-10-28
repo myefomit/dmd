@@ -9,6 +9,10 @@ def index():
 def static(file):
   return static_file(file, root='view/styles')
 
+@route('/styles/fonts/<file>', name='view/styles/fonts')
+def static(file):
+  return static_file(file, name='view/styles/fonts')
+
 @route('/search')
 def search():
   author_name = request.query['name']
