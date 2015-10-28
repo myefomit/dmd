@@ -6,33 +6,38 @@
 </head>
 <body>
 <h1>Welcome to our app!</h1>
-<div>
-  <form action="search">
+<form action="search">
     <h2>Here you can find any paper you want</h2>
    
 	<div id="body">
-		<div align="center">
-		
 		<div align="center"><t4>Search the article</t4>
 			<div align="center" class="padding">
 				<input type="search" id="title" name="title" placeholder="Search"> <!-- id="title" -->
 			</div>
 		</div>
 		
+		<div align="center" id="comment">
+			<t11>"Please Search by typing what you are looking for"</t11>
+		</div>
+		
+		<div align="center" class="padding">
+			<button type="submit" id="SUBMIT" class="Submit"><t1>SUBMIT</t1></button>
+		</div>
+		
+		<div align="center">
 			<div class="support"><t4>Author</t4>
 				<div align="center" class="padding">
 					<input type="search" id="name" name="name" placeholder="Search"> <!-- id="name" -->
 				</div>
 			</div>
-
-
+			
 			<div class="support"><t4>Category</t4>
 				<div align="center" class="padding">
 					<input type="search" id="category" name="category" placeholder="Search"> <!-- id="category" -->
 				</div>
 			</div>
-
-			<div class="support"><t4>Year</t4>
+			
+			<div class="support"><t4>Date</t4>
 				<div class="padding">
 					<select class="option_font" name="year" id="year"> <!-- id="year" -->
 						<option selected value="choose">Choose the year</option>
@@ -58,19 +63,16 @@
 					</select>
 				</div>
 			</div>
-
+			
 			<div class="support"><t4>Limit</t4>
 				<div align="center" class="padding">
 					<input type="search" id="limit" name="limit" placeholder="Search"> <!-- id="limit" -->
 				</div>
 			</div>
-
-		<div align="center" class="padding">
-			<button type="submit" id="SUBMIT" class="Submit"><t1>SEARCH</t1></button>
-		</div>
+			
+		</div>	
+	</div>
+	
   </form>
-</div>	
-</div>
-</div>
 </body>
 </html>
