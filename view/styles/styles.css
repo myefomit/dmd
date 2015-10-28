@@ -156,15 +156,25 @@ a {
     margin-bottom: 10px;
 }
 
-
 #body {
 	 top: 300px;
+	 position: center;
 	 position: relative;
 }
 
 #title {
 	 top: 520px; 
-	 width: 17%;
+	 width: 19%;
+	 height: 45px;
+	 border-top: #3498db;
+	 border-right: #3498db;
+	 border-left: #3498db;
+	 font: 17pt Corbert;
+	 font-weight: bold;
+}
+
+#login, #password {
+	 width: 19%;
 	 height: 45px;
 	 border-top: #3498db;
 	 border-right: #3498db;
