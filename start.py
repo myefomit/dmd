@@ -4,7 +4,8 @@ from user import User
 
 @route('/') 
 def index():
-  return template("view/main.tpl", messages=False, user=False)
+  user = request.get_cookie('account', secret='SECRETKEY')
+  return template("view/main.tpl", messages=False, user=user)
 
 @route('/styles/<file>', name='view/styles')
 def static(file):
