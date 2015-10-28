@@ -3,6 +3,14 @@
 	padding: 0;
  }
  
+#table{
+	width:100%;
+}
+
+.table{
+	min-width:1024px;
+}
+ 
 .results {
 	margin: 10px;
 }
@@ -29,9 +37,11 @@
 
 .options {
 	display: inline-block;
-	margin-bottom: auto;
-	margin-right: auto;
 	padding: 10px;
+	width: 50%;
+	max-width: 10%;
+	padding-left: 6%;
+	padding-right: 6%;
 }
 
 .signature {
@@ -42,9 +52,10 @@
 .option_font {
 	font: 17pt Corbert;
 	font-weight: bold;
-	color: #000;
+	background: none;
 	margin-left: auto;
     margin-right: auto;
+	color: #95a5a6;
 }
 
 .padding {
@@ -55,6 +66,26 @@
 	background: #c0392b;
 	color: #fff;
 	padding: 3px;
+}
+
+.articles {
+	padding: 50px;
+}
+
+.title {
+	
+}
+
+.link {
+	
+}
+
+.summary {
+	
+}
+
+.categories {
+	
 }
 
 .SignUp, .SignUp:hover, .SignUp:active {
@@ -160,6 +191,7 @@ a {
 	 top: 300px;
 	 position: center;
 	 position: relative;
+	 min-width: 500px;
 }
 
 #title {
@@ -171,6 +203,7 @@ a {
 	 border-left: #3498db;
 	 font: 17pt Corbert;
 	 font-weight: bold;
+	 outline: none;
 }
 
 #login, #password {
@@ -181,24 +214,31 @@ a {
 	 border-left: #3498db;
 	 font: 17pt Corbert;
 	 font-weight: bold;
+	 outline: none;
 }
 
 #name, #category, #limit, #year  {
-	 top: 520px; 
-	 width: 100%;
+	 top: 520px;
 	 height: 45px;
-	 border-top: #3498db;
-	 border-right: #3498db;
-	 border-left: #3498db;
+	 border-top: none;
+	 border-right: none;
+	 border-left: none;
 	 font: 17pt Corbert;
 	 font-weight: bold;
+	 outline: none;
+	 width: 200%;
+	 max-width: 200%;
+	 padding: 6%;
 }
 
 #submit {
 	 top: 620px;
 	 z-index: 2;
+	 width: 50%;
+	 max-width: 20%;
 }
 
 #comment {
 	 top: 590px;
 }
+
