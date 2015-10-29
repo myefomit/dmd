@@ -4,11 +4,11 @@
  }
  
 #table{
-	width:100%;
+	width: 100%;
 }
 
 .table{
-	min-width:1024px;
+	min-width: 1024px;
 }
  
 .results {
@@ -38,7 +38,6 @@
 .options {
 	display: inline-block;
 	padding: 10px;
-	width: 50%;
 	max-width: 10%;
 	padding-left: 6%;
 	padding-right: 6%;
@@ -88,6 +87,19 @@
 	
 }
 
+.More, .More:hover, .More:active {
+	text-align: center;
+	width: 369px;
+	z-index: 1;
+	padding: 9px 7px;
+	border: none; 
+	-webkit-border-radius: 6 px;
+	-moz-border-radius: 6px; 
+	border-radius: 6px; 
+	background: #ecf0f1;
+	outline: none;
+}
+
 .SignUp, .SignUp:hover, .SignUp:active {
 	text-align: center;
 	right: 8px;
@@ -101,6 +113,25 @@
 	-moz-border-radius: 6px;
 	border-radius: 6px;
 	background: #c0392b;
+	-webkit-box-shadow: 0px 0px 2px, inset 0px 0px 1px #ffffff;
+	-moz-box-shadow: 0px 0px 2px,  inset 0px 0px 1px #ffffff;
+	box-shadow: 0px 0px 2px, inset 0px 0px 1px #ffffff;
+}
+
+.SignIn, .SignIn:hover, .SignIn:active {
+	visibility: hidden;
+	text-align: center;
+	right: 132px;
+	top: 8px;
+	position: absolute;
+	width: 80px;
+	z-index: 1;
+	padding: 5px 17px;
+	border: none;
+	-webkit-border-radius: 6 px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	background: #2980b9;
 	-webkit-box-shadow: 0px 0px 2px, inset 0px 0px 1px #ffffff;
 	-moz-box-shadow: 0px 0px 2px,  inset 0px 0px 1px #ffffff;
 	box-shadow: 0px 0px 2px, inset 0px 0px 1px #ffffff;
@@ -187,15 +218,21 @@ a {
     margin-bottom: 10px;
 }
 
+#buttons {
+	display: inline-block;
+}
+
+#hidden {
+	visibility: hidden;
+}
+
 #body {
 	 top: 300px;
 	 position: center;
 	 position: relative;
-	 min-width: 500px;
 }
 
-#title {
-	 top: 520px; 
+#title  {
 	 width: 19%;
 	 height: 45px;
 	 border-top: #3498db;
@@ -218,7 +255,6 @@ a {
 }
 
 #name, #category, #limit, #year  {
-	 top: 520px;
 	 height: 45px;
 	 border-top: none;
 	 border-right: none;
@@ -231,6 +267,10 @@ a {
 	 padding: 6%;
 }
 
+#comment {
+	 top: 590px;
+}
+
 #submit {
 	 top: 620px;
 	 z-index: 2;
@@ -238,7 +278,13 @@ a {
 	 max-width: 20%;
 }
 
-#comment {
-	 top: 590px;
+#arrow {
+	height: 30px;
 }
 
+#more {
+	 z-index: 2;
+	 width: 50%;
+	 max-width: 20%;
+	 border: none;
+}

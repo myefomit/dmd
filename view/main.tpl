@@ -9,6 +9,14 @@
 	<body>
 		<table>
 			<td class="table">
+				<div id="buttons">
+					<div id="SignUp" class="SignUp">
+						<a href="reg.tpl"/><t1>Sign Up</t1></a>
+					</div>
+					<div id="SignIn" class="SignIn">
+						<a href="reg.tpl"/><t1>Sign In</t1></a>
+					</div>
+				</div>
 				<form action="search">
 					<div id="body">
 						<div align="center"><t2>Search the article</t2>
@@ -19,13 +27,19 @@
 							<div align="center" id="comment">
 								<t3>"Please Search by typing what you are looking for"</t3>
 							</div>
-						</div>
 						
 						<div align="center" class="padding">
 							<button type="submit" id="submit" class="Submit"><t1>SEARCH</t1></button>
 						</div>
 						
 						<div align="center">
+							<button type="button"  id="more" class="More">
+									<img id="arrow" src="images/arrow.png">
+							</button>
+						</div>
+					</div>
+					
+						<div align="center" id="hidden">
 							<div class="options" align="center"><t2>Author</t2>
 								<div align="center" class="padding">
 									<input type="search" id="name" name="name" placeholder="Search">
@@ -70,7 +84,8 @@
 									<input type="search" id="limit" name="limit" placeholder="Search">
 								</div>
 							</div>
-						</div>	
+						
+						</div>
 					</div>
 				</form>
 			</td>
