@@ -174,6 +174,27 @@ t3 {
 	color: #bdc3c7;
 }
 
+t4 {
+	font: 16pt LucidaSansUnicode;
+	color: #000;
+}
+
+t5 {
+	font: 16pt LucidaSansUnicode;
+	color: #bdc3c7;
+}
+
+t5 :visited {
+	font: 16pt LucidaSansUnicode;
+	color: #bdc3c7;
+}
+
+
+t6 {
+	font: 16pt LucidaSansUnicode;
+	color: #16a085;
+}
+
 a {
 	color: #fff;
 	text-decoration: none;
@@ -287,4 +308,8 @@ a {
 	 width: 50%;
 	 max-width: 20%;
 	 border: none;
+}
+
+#article {
+	 padding: 30px;
 }

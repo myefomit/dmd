@@ -3,30 +3,32 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title><!--  --></title>
-		<link href="styles.css" rel="stylesheet" type="text/css">
+		<link href="styles/styles.css" rel="stylesheet" type="text/css">
 	</head>
 	
 	<body>	
-	
-		<div class="article">
-		
-			<div class="title">
+		<table>
+			<td class="table">
+				<div id="article">
 				
-			</div>
-			
-			<div class="link">
-				
-			</div>
-			
-			<div class="summary">
-				
-			</div>
-			
-			<div class="categories">
-				
-			</div>
-			
-		</div>
-		
+					<div>
+						<t2>Title</t2>
+					</div>
+					
+					<div>
+						<a href="http://arxiv.org/abs/1107.0014"/><t5>arxiv.org/abs/1107.0014</t5></a>
+					</div>
+					
+					<div>
+						<t4>We consider wave equations on Lorentzian manifolds in case of low regularity. Weility of the Cauchy problem for distributional data and right hand side on smooth globally hyperbolic space-times.</t4>
+					</div>
+					
+					<div>
+						<t6>math.AP</t6>
+					</div>
+					
+				</div>
+			</td>
+		</table>
 	</body>
 </html>
