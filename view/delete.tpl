@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Sign In</title>
+		<title>Delete Article</title>
 		<link href="styles/styles.css" rel="stylesheet" type="text/css">
 	</head>
 	
@@ -10,14 +10,10 @@
 
 		<div id="body" align="center">
 			
-			<div><t2>Sign In</t2>
+			<div><t2>Delete Article</t2>
 				<div align="center" class="padding">
-					<input type="search" id="login" name="username" placeholder="Login">
+					<input type="search" id="login" name="id" placeholder="Enter Id">
 				</div>
-			</div>
-			
-			<div align="center" class="padding">
-				<input type="search" id="password" name="password" placeholder="Password">
 			</div>
 			
 			<div align="center" class="padding">
