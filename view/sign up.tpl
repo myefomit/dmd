@@ -10,7 +10,7 @@
 
 		<div id="body" align="center">
 			
-			<div><t2>Join to Us</t2>
+			<div><t2>Join Us</t2>
 				<div align="center" class="padding">
 					<input type="search" id="login" name="username" placeholder="Login">
 				</div>
@@ -21,7 +21,7 @@
 			</div>
 			
 			<div align="center" class="padding">
-				<button type="submit" id="submit" class="Submit"><t1>Sign Up</t1></button>
+				<button type="submit" id="submit" class="Submit"><t1>Submit</t1></button>
 			</div>
 			
 		</div>

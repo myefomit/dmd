@@ -11,10 +11,10 @@
 			<td class="table">
 				<div id="buttons">
 					<div id="SignUp" class="SignUp">
-						<a href="reg.tpl"/><t1>Sign Up</t1></a>
+						<a href="sign up.tpl"/><t1>Sign Up</t1></a>
 					</div>
 					<div id="SignIn" class="SignIn">
-						<a href="reg.tpl"/><t1>Sign In</t1></a>
+						<a href="sign in.tpl"/><t1>Sign In</t1></a>
 					</div>
 				</div>
 				<form action="search">

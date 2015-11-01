@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Search results</title>
+		<title>Create new article</title>
 		<link href="styles/styles.css" rel="stylesheet" type="text/css">
 	</head>
 	
