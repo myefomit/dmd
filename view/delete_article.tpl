@@ -4,6 +4,15 @@
   <title>Delete Article</title>
 </head>
 <body>
+
+  %if messages:
+    <div class="msgs">
+      %for message in messages:
+        <div class="msg">{{message}}</div>
+      %end
+    </div>
+  %end
+  
   <form action="/delete_article" method="post">
 
     <label for="id">Enter ID: </label>

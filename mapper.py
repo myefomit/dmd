@@ -148,7 +148,7 @@ class Article:
 
     Article.conn.commit()
 
-    Article.SCCS_MSGS.append("Yay! Now there is no article with such ID!")
+    Article.SCCS_MSGS.append("Yay! Article was deleted!")
 
     return True
 
