@@ -4,6 +4,8 @@
   <title>{{article['title']}}</title>
 </head>
 <body>
+
+  <a href="/">Home</a>
   <h1>{{article['title']}}</h1>
   <div class="authors">
     <span>

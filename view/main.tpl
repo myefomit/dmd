@@ -5,6 +5,9 @@
 
   %if user:
     <div><a href="/sign_out">Sign out</a></div>
+    <div><a href="/new_article">Create new article</a></div>
+    <div><a href="/update_article">Update article</a></div>
+    <div><a href="/delete_article">Delete article</a></div>
   %else:
     <div><a href="/sign_in">Sign in</a></div>
     <div><a href="/sign_up">Sign up</a></div>

@@ -13,12 +13,12 @@ def static(file):
 
 @route('/search')
 def search():
-  author_name = request.query['name']
+  author = request.query['name']
   limit = request.query['limit']
   category = request.query['category']
   title = request.query['title']
   year = request.query['year']
-  data = Article.find(author_name, category, title, year, limit)
+  data = Article.find(author, category, title, year, limit)
   return template("view/search_result.tpl", rows=data)
 
 @post('/sign_up')
@@ -50,7 +50,6 @@ def sign_in():
 @get('/sign_in')
 def show_sign_in():
   logged_user = request.get_cookie('account', secret='SECRETKEY')
-  print(logged_user)
   if not logged_user:
     return template("view/sign_in.tpl", messages=False)
   else:
@@ -61,10 +60,64 @@ def sign_out():
   response.set_cookie('account', '', secret='SECRETKEY')
   return template("view/main.tpl", messages=False, user=False)
 
+@route('/article/<id>/<post>')
+def show(id, post):
+  id = id + "/" + post
+  article = Article.find_by_id(id)
+  return template("view/article.tpl", article=article)
+
 @route('/article/<id>')
 def show(id):
   article = Article.find_by_id(id)
   return template("view/article.tpl", article=article)
 
-run(host='localhost', port=3001)
+@get('/mission_control')
+def control():
+  logged_user = request.get_cookie('account', secret='SECRETKEY')
+  if not logged_user:
+    return template("view/main.tpl", messages=User.permission_msgs['writer'], user=False)
+  else:
+    return template("view/mission_control.tpl", user=logged_user)
 
+@get('/new_article')
+def show_new_article():
+  logged_user = request.get_cookie('account', secret='SECRETKEY')
+  if not logged_user:
+    return template("view/main.tpl", messages=User.permission_msgs['writer'], user=False)
+  else:
+    return template("view/new_article.tpl", messages=False, user=logged_user)  
+
+@post('/new_article')
+def new_article():
+  logged_user = request.get_cookie('account', secret='SECRETKEY')
+  author = request.forms.get('author')
+  category = request.forms.get('category')
+  summary = request.forms.get('summary')
+  title = request.forms.get('title')
+  year = request.forms.get('year')
+  id = request.forms.get('id')
+
+  if Article.create(author, category, title, year, summary, id):
+    return template("view/main.tpl", messages=Article.SCCS_MSGS, user=logged_user)
+  else:
+    return template("view/new_article.tpl", messages=Article.ERROR_MSGS, user=logged_user)
+
+@get('/delete_article')
+def show_delete_article():
+  logged_user = request.get_cookie('account', secret='SECRETKEY')
+  if User.is_admin(logged_user):
+    return template("view/delete_article.tpl")
+  else:
+    return template("view/main.tpl", messages=User.permission_msgs['admin'], user=logged_user)
+
+@post('/delete_article')
+def delete_article():
+  logged_user = request.get_cookie('account', secret='SECRETKEY')
+  id = request.forms.get('id')
+  if Article.delete_article(id):
+    return template("view/main.tpl", messages=Article.SCCS_MSGS, user=logged_user)
+  else:
+    return template("view/delete_article.tpl", messages=Article.ERROR_MSGS, user=logged_user)
+
+
+run(host='localhost', port=3001)

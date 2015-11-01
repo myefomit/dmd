@@ -3,12 +3,13 @@ import psycopg2
 
 class User:
 
-  conn = psycopg2.connect("dbname=project77 user=postgres")
+  conn = psycopg2.connect("dbname=projnew user=postgres")
   cur = conn.cursor()
 
   success_messages = []
   error_messages = []
   ALREADY_SIGNED_IN = ["Hey! You're already signed in :)"]
+  permission_msgs = {"writer": ["Please, sign in before."], "admin": ["You have not enough permissions, please contact us to get it."]}
 
   @staticmethod
   def check_login(name, password):
@@ -80,6 +81,18 @@ class User:
       return dict(username=user[0][0], hashed_password=hashed_password, is_admin=user[0][1])
     else:
       return False
+
+  @staticmethod
+  def is_admin(username):
+
+    if not username:
+      return False
+
+    User.cur.execute("SELECT is_admin FROM users WHERE login = %s", (username,))
+    is_admin = User.cur.fetchall()[0][0]
+
+    return is_admin
+
 
 
 
