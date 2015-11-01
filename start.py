@@ -114,10 +114,33 @@ def show_delete_article():
 def delete_article():
   logged_user = request.get_cookie('account', secret='SECRETKEY')
   id = request.forms.get('id')
-  if Article.delete_article(id):
+  if Article.delete(id):
     return template("view/main.tpl", messages=Article.SCCS_MSGS, user=logged_user)
   else:
     return template("view/delete_article.tpl", messages=Article.ERROR_MSGS, user=logged_user)
+
+@get('/update_article')
+def show_update_article():
+  logged_user = request.get_cookie('account', secret='SECRETKEY')
+  if User.is_admin(logged_user):
+    return template("view/update_article", messages=False)
+  else:
+    return template("view/main.tpl", messages=User.permission_msgs['admin'], user=logged_user)
+
+@post('/update_article')    
+def update_article():
+  logged_user = request.get_cookie('account', secret='SECRETKEY')
+  author = request.forms.get('author')
+  category = request.forms.get('category')
+  summary = request.forms.get('summary')
+  title = request.forms.get('title')
+  year = request.forms.get('year')
+  id = request.forms.get('id')
+
+  if Article.update(author, category, summary, title, year, id):
+    return template("view/main.tpl", messages=Article.SCCS_MSGS, user=logged_user)
+  else:
+    return template("view/update_article.tpl", messages=Article.ERROR_MSGS, user=logged_user)
 
 
 run(host='localhost', port=3001)

@@ -11,6 +11,10 @@ class Article:
 
   @staticmethod
   def find(author, category, title, year, limit):
+
+    Article.ERROR_MSGS = []
+    Article.SCCS_MSGS = []
+
     BASE_SQL = "SELECT DISTINCT ON(title) title, summary, link, category "
     conditions = "WHERE articles.id = article_categories.id and articles.id = article_categories.id and article_categories.cid = categories.cid "
 
@@ -42,6 +46,10 @@ class Article:
 
   @staticmethod
   def find_by_id(id):
+
+    Article.ERROR_MSGS = []
+    Article.SCCS_MSGS = []
+
     authors = []
     categories = []
 
@@ -64,6 +72,7 @@ class Article:
   def create(author, category, title, year, summary, id):
 
     Article.ERROR_MSGS = []
+    Article.SCCS_MSGS = []
 
     MAX_LENGTH = 250
     MAX_ID_LENGTH = 19
@@ -117,8 +126,20 @@ class Article:
     return True
 
   @staticmethod
-  def delete_article(id):
+  def delete(id):
+
+    Article.ERROR_MSGS = []
+    Article.SCCS_MSGS = []
+
     if not id:
+      return False
+
+    Article.cur.execute("SELECT id FROM articles WHERE id = %s", (id,))
+
+    id_exists = Article.cur.fetchall()
+
+    if len(id_exists) == 0:
+      Article.ERROR_MSGS.append("There is no article with such ID.")
       return False
 
     Article.cur.execute("DELETE FROM articles WHERE id = %s", (id,))
@@ -131,9 +152,26 @@ class Article:
 
     return True
 
+  @staticmethod
+  def update(author, category, summary, title, year, id):
 
+    Article.ERROR_MSGS = []
+    Article.SCCS_MSGS = []
 
+    if not (author and year and category and title and summary and id):
+      Article.ERROR_MSGS.append("All fields are required")
+      return False
 
+    if Article.delete(id):
+      if Article.create(author, category, summary, title, year, id):
+        Article.SCCS_MSGS.append("You've successfully updated the article")
+        return True
+      else:
+        Article.ERROR_MSGS.append("Woops! Something went wrong and article was removed :(")
+        return False
+    else:
+      Article.ERROR_MSGS.append("Update failed :(")
+      return False
 
 
 
