@@ -9,14 +9,26 @@
 	<body>
 		<table>
 			<td class="table">
-				<div id="buttons">
+					<div id="menu" align="center">
+						<div id="main_menu" class="option">
+							<a href="main.tpl"/><t2>Home</t2></a>
+						</div>
+						<div id="update_menu" class="option">
+							<a href="update.tpl"/><t2>Update</t2></a>
+						</div>
+						<div id="new_aricle_menu" class="option">
+							<a href="new_aricle.tpl"/><t2>Create</t2></a>
+						</div>
+						<div id="delete_menu" class="option">
+							<a href="delete.tpl"/><t2>Delete</t2></a>
+						</div>
+					</div>
 					<div id="SignUp" class="SignUp">
-						<a href="sign up.tpl"/><t1>Sign Up</t1></a>
+						<a href="sign_up.tpl"/><t1>Sign Up</t1></a>
 					</div>
 					<div id="SignIn" class="SignIn">
-						<a href="sign in.tpl"/><t1>Sign In</t1></a>
+						<a href="sign_in.tpl"/><t1>Sign In</t1></a>
 					</div>
-				</div>
 				<form action="search">
 					<div id="body">
 						<div align="center"><t2>Search the article</t2>
