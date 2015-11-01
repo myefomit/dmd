@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Search results</title>
+		<link href="styles/styles.css" rel="stylesheet" type="text/css">
+	</head>
+	
+	<body>
+	
+		<div id="new_article">
+							
+			<div align="center" class="padding">
+				<input type="text" id="enter_title" name="title" placeholder="Enter title">
+			</div>
+								
+			<div align="center" class="padding">
+				<textarea type="text" id="enter_summary" name="title" rows="5" placeholder="Enter summary"></textarea>
+			</div>
+			
+			<div class="padding">
+				<select class="option_font" name="category" id="choose_category">
+					<option selected value="0">Choose the category</option>
+					<option value="math.AP">math.AP</option>
+				</select>
+			</div>
+								
+			<div align="center" class="padding">
+				<input type="text" id="enter_author" name="title" placeholder="Enter authors name">
+			</div>
+								
+		</div>
+	</body>
+</html>

@@ -253,8 +253,36 @@ a {
 	 position: relative;
 }
 
+#new_article {
+	 padding: 10%;
+	 position: center;
+	 position: relative;
+}
+
 #title  {
 	 width: 19%;
+	 height: 45px;
+	 border-top: #3498db;
+	 border-right: #3498db;
+	 border-left: #3498db;
+	 font: 17pt Corbert;
+	 font-weight: bold;
+	 outline: none;
+}
+
+#enter_summary {
+	 width: 100%;
+	 height: 10%;
+	 border-top: #3498db;
+	 border-right: #3498db;
+	 border-left: #3498db;
+	 font: 17pt Corbert;
+	 font-weight: bold;
+	 outline: none;
+}
+
+#enter_title, #enter_author, #choose_category  {
+	 width: 100%;
 	 height: 45px;
 	 border-top: #3498db;
 	 border-right: #3498db;

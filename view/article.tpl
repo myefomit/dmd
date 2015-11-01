@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Search results</title>
+		<title>{{article['title']}}</title>
 		<link href="styles/styles.css" rel="stylesheet" type="text/css">
 	</head>
 	
@@ -10,19 +10,23 @@
 		<div id="article">
 		
 			<div>
-				<t2><!-- --></t2>
+				<t2>{{article['title']}}</t2>
 			</div>
 			
 			<div>
-				<t5><!-- --></t5>
+				<t6>{{", ".join(article['authors'])}}</t6>
+			</div>
+			
+			<div>
+				<t5>{{article['link']}}</t5>
 			</div>
 								
 			<div>
-				<t4><!-- --></t4>
+				<t4>{{article['summary']}}...</t4>
 			</div>
 								
 			<div>
-				<t6><!-- --></t6>
+				<t6>{{", ".join(article['categories'])}}</t6>
 			</div>
 								
 		</div>
