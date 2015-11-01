@@ -4,33 +4,58 @@ class Article:
 
   """This class decides which type of search it would be based on provided params"""
 
-  conn = psycopg2.connect("dbname=project77 user=postgres")
+  conn = psycopg2.connect("dbname=projnew user=postgres")
   cur = conn.cursor()
 
   @staticmethod
   def find(author, category, title, year, limit):
-    BASE_SQL = "SELECT DISTINCT ON(title) title, summary, name, link, category FROM articles, categories, authors, connection WHERE "
-    conditions = "articles.id = connection.id and categories.cid = connection.cid and authors.aid = connection.aid "
+    # BASE_SQL = "SELECT DISTINCT ON(title) title, summary, name, link, category FROM articles, categories, authors, connection WHERE "
+    # conditions = "articles.id = connection.id and categories.cid = connection.cid and authors.aid = connection.aid "
+
+    # if not (title or year or author or category):
+    #   return -1
+    # if title:
+    #   conditions = conditions + "and lexemes @@ plainto_tsquery(%(title)s) "
+    # if year:
+    #   conditions = conditions + "and year = %(year)s "
+    # if author:
+    #   conditions = conditions + "and authors.name ILIKE '%% " + author + "%%' "
+    # if category:
+    #   conditions = conditions + "and categories.category = %(category)s "
+    # if limit:
+    #   limit = "LIMIT " + limit
+    # else:
+    #   limit = "LIMIT 50"
+
+    # Article.cur.execute(BASE_SQL + conditions + limit, dict(title=title, category=category, year=year))
+    BASE_SQL = "SELECT DISTINCT ON(title) title, summary, link, category "
+    conditions = "WHERE articles.id = article_categories.id and articles.id = article_categories.id and article_categories.cid = categories.cid "
 
     if not (title or year or author or category):
       return -1
+
+    if author:
+      BASE_SQL = BASE_SQL + ", name FROM articles, categories, authors, article_authors, article_categories "
+      conditions = conditions + "and articles.id = article_authors.id and article_authors.aid = authors.aid and authors.name ILIKE " + repr("%%"+author+"%%") + " "
+    else:
+      BASE_SQL = BASE_SQL + "FROM articles, article_categories, categories "
+
     if title:
       conditions = conditions + "and lexemes @@ plainto_tsquery(%(title)s) "
     if year:
       conditions = conditions + "and year = %(year)s "
-    if author:
-      conditions = conditions + "and authors.name ILIKE '%% " + author + "%%' "
     if category:
-      conditions = conditions + "and categories.category = %(category)s "
+      conditions = conditions + "and categories.category = %(category)s"
+
     if limit:
-      limit = "LIMIT " + limit
+      conditions = conditions + "LIMIT (%(limit)s)"
     else:
-      limit = "LIMIT 50"
+      conditions = conditions + "LIMIT 50"
 
-    Article.cur.execute(BASE_SQL + conditions + limit, dict(title=title, category=category, year=year))
+    print(BASE_SQL + conditions)
+
+    Article.cur.execute(BASE_SQL + conditions, dict(title=title, category=category, year=year, limit=limit))
     data = Article.cur.fetchall()
-
-    print(data)
 
     return data
 
