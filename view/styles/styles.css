@@ -152,6 +152,21 @@
 	-moz-box-shadow: 0px 0px 2px,  inset 0px 0px 1px #ffffff;  
 	box-shadow: 0px 0px 2px, inset 0px 0px 1px #ffffff;  
 }
+
+.Create, .Create:hover, .Create:active {
+	text-align: center;
+	width: 100%;
+	z-index: 1;
+	padding: 9px 7px; 
+	border: none; 
+	-webkit-border-radius: 6 px;
+	-moz-border-radius: 6px; 
+	border-radius: 6px; 
+	background: #16a085;
+	-webkit-box-shadow: 0px 0px 2px, inset 0px 0px 1px #ffffff; 
+	-moz-box-shadow: 0px 0px 2px,  inset 0px 0px 1px #ffffff;  
+	box-shadow: 0px 0px 2px, inset 0px 0px 1px #ffffff;  
+}
    
 t1 {
 	font: 16pt LucidaSansUnicode;

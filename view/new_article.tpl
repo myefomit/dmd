@@ -9,7 +9,11 @@
 	<body>
 	
 		<div id="new_article">
-							
+			
+			<div >
+				<t2>Create new article</t2>
+			</div>
+			
 			<div align="center" class="padding">
 				<input type="text" id="enter_title" name="title" placeholder="Enter title">
 			</div>
@@ -28,7 +32,11 @@
 			<div align="center" class="padding">
 				<input type="text" id="enter_author" name="title" placeholder="Enter authors name">
 			</div>
-								
+			
+			<div align="center" class="padding">
+				<button type="submit" class="Create"><t1>CREATE</t1></button>
+			</div>
+			
 		</div>
 	</body>
 </html>
