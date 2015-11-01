@@ -1,23 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" href="styles/main.css">
-  <title>Search results</title>
-</head>
-<body>
-  %if (rows != []):
-    <a href="/">Take me back</a>
-  %end
-  <div class="results">
-    %if (rows and rows != []):
-      %for row in rows:
-        <div><a href="/article/{{row[3].split("/")[-1]}}"><h3>{{row[0]}}</h3></a> - <span>{{row[2]}}</span></div>
-        <div><p>{{row[1]}}...</p></div>
-      %end
-    %else:
-      <h1>Nothing for you today, come back soon!</h1>
-    %end
-  </div>
-  <a href="/">Take me back</a>
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Search results</title>
+		<link href="styles/styles.css" rel="stylesheet" type="text/css">
+	</head>
+	
+	<body>	
+		<table>
+			<td class="table">
+				
+				%if (rows != []):
+					<div id="nothing">
+						<a href="/">Take me back</a>
+					</div>
+				%end
+				
+				<div id="results">
+					%if (rows and rows != []):
+						%for row in rows:
+					
+							<div id="article">
+							
+								<div>
+									<t2><!-- --></t2>
+								</div>
+								
+								<div>
+									<t5><!-- --></t5>
+								</div>
+								
+								<div>
+									<t4><!-- --></t4>
+								</div>
+								
+								<div>
+									<t6><!-- --></t6>
+								</div>
+								
+							</div>
+			
+						%end
+					%else:
+						<t2>Nothing for you today, come back soon!</t2>
+					%end
+				</div>
+				
+				<div id="nothing">
+					<a href="/">Take me back</a>
+				</div>
+			</td>
+		</table>
+	</body>
 </html>
