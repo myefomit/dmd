@@ -81,6 +81,7 @@ class User:
       return dict(username=user[0][0], hashed_password=hashed_password, is_admin=user[0][1])
     else:
       return False
+      
 
   @staticmethod
   def is_admin(username):

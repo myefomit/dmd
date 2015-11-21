@@ -12,8 +12,7 @@ class Article:
   @staticmethod
   def find(author, category, title, year, limit):
 
-    Article.ERROR_MSGS = []
-    Article.SCCS_MSGS = []
+    Article.clean_msgs()
 
     BASE_SQL = "SELECT DISTINCT ON(title) title, summary, link, category "
     conditions = "WHERE articles.id = article_categories.id and articles.id = article_categories.id and article_categories.cid = categories.cid "
@@ -47,8 +46,7 @@ class Article:
   @staticmethod
   def find_by_id(id):
 
-    Article.ERROR_MSGS = []
-    Article.SCCS_MSGS = []
+    Article.clean_msgs()
 
     authors = []
     categories = []
@@ -71,8 +69,7 @@ class Article:
   @staticmethod
   def create(author, category, title, year, summary, id):
 
-    Article.ERROR_MSGS = []
-    Article.SCCS_MSGS = []
+    Article.clean_msgs()
 
     MAX_LENGTH = 250
     MAX_ID_LENGTH = 19
@@ -128,8 +125,7 @@ class Article:
   @staticmethod
   def delete(id):
 
-    Article.ERROR_MSGS = []
-    Article.SCCS_MSGS = []
+    Article.clean_msgs()
 
     if not id:
       return False
@@ -155,8 +151,7 @@ class Article:
   @staticmethod
   def update(author, category, summary, title, year, id):
 
-    Article.ERROR_MSGS = []
-    Article.SCCS_MSGS = []
+    Article.clean_msgs()
 
     if not (author and year and category and title and summary and id):
       Article.ERROR_MSGS.append("All fields are required")
@@ -172,6 +167,11 @@ class Article:
     else:
       Article.ERROR_MSGS.append("Update failed :(")
       return False
+
+  @staticmethod
+  def clean_msgs():
+    Article.ERROR_MSGS = []
+    Article.SCCS_MSGS = []
 
 
 
