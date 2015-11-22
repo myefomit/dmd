@@ -15,7 +15,7 @@ class Article:
     Article.clean_msgs()
 
     SEARCH_LIMIT = 50
-    BASE_SQL = "SELECT title, summary, link, category, year "
+    BASE_SQL = "SELECT DISTINCT ON(title) title, summary, link, category, year "
     conditions = "WHERE articles.id = article_categories.id and articles.id = article_categories.id and article_categories.cid = categories.cid "
 
     if not (title or year or author or category):
