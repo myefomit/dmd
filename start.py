@@ -18,7 +18,9 @@ def search():
   category = request.query['category']
   title = request.query['title']
   year = request.query['year']
-  data = Article.find(author, category, title, year, limit)
+  order_by = request.query['order-by']
+  order = request.query['order']
+  data = Article.find(author, category, title, year, limit, order_by, order)
   return template("view/search_result.tpl", rows=data)
 
 @post('/sign_up')

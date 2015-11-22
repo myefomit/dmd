@@ -16,9 +16,13 @@
 
         %for row in rows:
           <div><a href="/article{{row[2].split("abs")[-1]}}"><h3>{{row[0]}}</h3></a> - <span>{{row[2]}}</span></div>
-          %if len(row) >= 5 and row[4]:
-            <div><span>{{row[4]}}</span></div>
+          <div class="categories">{{row[3]}}</div>
+          %if len(row) >= 6:
+            <div><span>{{row[5]}}</span></div>
           %end
+          <div class="year">
+            {{row[4]}}
+          </div>
           <div><p>{{row[1]}}...</p></div>
         %end
       </div>

@@ -10,15 +10,17 @@ class Article:
   SCCS_MSGS = []
 
   @staticmethod
-  def find(author, category, title, year, limit):
+  def find(author, category, title, year, limit, order_by, order):
 
     Article.clean_msgs()
 
-    BASE_SQL = "SELECT DISTINCT ON(title) title, summary, link, category "
+    SEARCH_LIMIT = 50
+    BASE_SQL = "SELECT title, summary, link, category, year "
     conditions = "WHERE articles.id = article_categories.id and articles.id = article_categories.id and article_categories.cid = categories.cid "
 
     if not (title or year or author or category):
       return -1
+
 
     if author:
       BASE_SQL = BASE_SQL + ", name FROM articles, categories, authors, article_authors, article_categories "
@@ -33,13 +35,53 @@ class Article:
     if category:
       conditions = conditions + "and categories.category = %(category)s"
 
+    if order_by != "none":
+
+      BASE_SQL = "CREATE TABLE temp AS " + BASE_SQL
+      
+      if limit:
+        conditions = conditions + "LIMIT (%(limit)s)"
+      else:
+        conditions = conditions + "LIMIT " + str(SEARCH_LIMIT) + " "
+
+
+      Article.cur.execute(BASE_SQL + conditions, dict(title=title, category=category, year=year, limit=limit))
+      Article.conn.commit()
+
+      temp_cond = "SELECT * FROM temp "
+
+
+      if order_by == "year":
+        temp_cond = temp_cond + "ORDER BY year "
+      elif order_by == "category":
+        temp_cond = temp_cond + "ORDER BY category "
+      else:
+        pass
+
+
+      if order == "desc":
+        temp_cond = temp_cond + "DESC "
+      elif order == "asc":
+        temp_cond = temp_cond + "ASC "
+
+      Article.cur.execute(temp_cond)
+      data = Article.cur.fetchall()
+
+      Article.cur.execute("DROP TABLE temp")
+      Article.conn.commit()
+
+      return data
+
+
     if limit:
       conditions = conditions + "LIMIT (%(limit)s)"
     else:
-      conditions = conditions + "LIMIT 50"
+      conditions = conditions + "LIMIT " + str(SEARCH_LIMIT) + " "
 
+      
     Article.cur.execute(BASE_SQL + conditions, dict(title=title, category=category, year=year, limit=limit))
     data = Article.cur.fetchall()
+    Article.conn.commit()
 
     return data
 
@@ -53,7 +95,7 @@ class Article:
 
     Article.cur.execute("SELECT DISTINCT ON (title) title, summary, link FROM articles WHERE id = %s", (id, ))
     data = Article.cur.fetchall()
-    Article.cur.execute("SELECT DISTINCT name FROM article_authors as aa, authors as au, articles as ar  WHERE au.aid = aa.aid and ar.id = aa.id and ar.id = %s", (id, ))
+    Article.cur.execute("SELECT DISTINCT name, au.aid FROM article_authors as aa, authors as au, articles as ar  WHERE au.aid = aa.aid and ar.id = aa.id and ar.id = %s", (id, ))
     authors_data = Article.cur.fetchall()
     Article.cur.execute("SELECT DISTINCT category FROM categories as ca, articles as ar, article_categories as ac WHERE ca.cid = ac.cid and ar.id = ac.id and ar.id = %s", (id, ))
     categories_data = Article.cur.fetchall()
@@ -64,7 +106,9 @@ class Article:
     for x in range(0, len(categories_data)):
       categories.append(categories_data[x][0])
 
-    return dict(title=data[0][0], summary=data[0][1], link=data[0][2], authors=authors, categories=categories)
+    return dict(title=data[0][0], summary=data[0][1], 
+                link=data[0][2], authors=authors,
+                categories=categories)
 
   @staticmethod
   def create(author, category, title, year, summary, id):
@@ -172,7 +216,4 @@ class Article:
   def clean_msgs():
     Article.ERROR_MSGS = []
     Article.SCCS_MSGS = []
-
-
-
 

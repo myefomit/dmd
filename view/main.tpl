@@ -48,6 +48,23 @@
       <input type="text" name="limit">  
     </div>
 
+    <div>
+      <label for="order-by">Order by: </label>
+      <select name="order-by">
+        <option value="none">None</option>
+        <option value="year">Year</option>
+        <option value="category">Category</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="order">Order: </label>
+      <select name="order">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+    </div>
+
     <input type="submit" value="Search">
 
   </form>
