@@ -1,3 +1,35 @@
 .results {
   margin: 10px;
 }
+
+.navs {
+  float: right;
+  margin-right: 1%;
+  margin-top: -7%;
+}
+
+.search {
+  margin: auto;
+  margin-right: 10%;
+  width: 50%;
+  margin-top: 8%; 
+}
+
+.input {
+  margin-top: 1%;
+}
+
+.select {
+  margin-top: 1%;
+}
+
+.search-submit {
+  margin-top: 1%;
+  
+}
+
+.messages {
+  margin-top: -7%;
+  width: 50%;
+  float: left;
+}
