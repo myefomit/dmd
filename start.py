@@ -73,14 +73,6 @@ def show(id):
   article = Article.find_by_id(id)
   return template("view/article.tpl", article=article)
 
-@get('/mission_control')
-def control():
-  logged_user = request.get_cookie('account', secret='SECRETKEY')
-  if not logged_user:
-    return template("view/main.tpl", messages=User.permission_msgs['writer'], user=False)
-  else:
-    return template("view/mission_control.tpl", user=logged_user)
-
 @get('/new_article')
 def show_new_article():
   logged_user = request.get_cookie('account', secret='SECRETKEY')
@@ -108,7 +100,7 @@ def new_article():
 def show_delete_article():
   logged_user = request.get_cookie('account', secret='SECRETKEY')
   if User.is_admin(logged_user):
-    return template("view/delete_article.tpl")
+    return template("view/delete_article.tpl", messages=False)
   else:
     return template("view/main.tpl", messages=User.permission_msgs['admin'], user=logged_user)
 

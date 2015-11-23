@@ -209,11 +209,12 @@ class Article:
         Article.ERROR_MSGS.append("Woops! Something went wrong and article was removed :(")
         return False
     else:
-      Article.ERROR_MSGS.append("Update failed :(")
+      Article.ERROR_MSGS.append("Update failed.")
       return False
 
   @staticmethod
   def clean_msgs():
     Article.ERROR_MSGS = []
     Article.SCCS_MSGS = []
+
 
